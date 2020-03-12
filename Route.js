@@ -6,7 +6,7 @@
     // import our screens as components 
     import Home from './screens/Home';
     import WatchVideo from './screens/Video';
-    export default class Routes extends Component<{}> {
+    export default class Routes extends Component {
       render() {
         return(
           <Router>
