@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
+import secrets from '../secrets'
 
 const MAX_RESULT = 15; 
 const PLAYLIST_ID = "PL4W7Aa3_xVcf_pqPOmmNxvdZKGhjNBfvz"; 
-const API_KEY = "AIzaSyDNx0Jmg9OpnNoktl6489zmB2ptvNTRj28"; 
-export default class FunkyPlaylist extends Component {
+const API_KEY = API_KEY_SECRET; 
+export default class Funky extends Component {
 
-    home(){
-        Actions.home();
-      };
-      watchVideo(video_url){
-        Actions.watchvideo({video_url: video_url});
-      };
       componentWillMount() {
         this.fetchPlaylistData();
       };
@@ -29,8 +23,13 @@ export default class FunkyPlaylist extends Component {
       }
       render() {
         const videos = this.state.videos;
+        const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
+             <Button   style={styles.button}
+                        title="Play This Playlist"
+                        onPress={() => navigate('Funky Playlist')}>
+              </Button>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -38,7 +37,7 @@ export default class FunkyPlaylist extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => this.watchVideo(item.contentDetails.videoId)}
+                        onPress={() => navigate('Video')}
                     >
                     <Text 
                       style={styles.item} 
@@ -67,4 +66,8 @@ export default class FunkyPlaylist extends Component {
         fontSize: 12,
         height: 44,
       },
+      button: { 
+          height: 100,
+          color: '#35C687'
+      }
     });

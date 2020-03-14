@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
 import {Actions} from 'react-native-router-flux'
+import secrets from '../secrets'
 
 const MAX_RESULT = 15; 
 const PLAYLIST_ID = "PL4W7Aa3_xVccPBZ6nucbBpJaqP0H_tsVL"; 
-const API_KEY = "AIzaSyDNx0Jmg9OpnNoktl6489zmB2ptvNTRj28"; 
-export default class MellowPlaylist extends Component {
+const API_KEY = API_KEY_SECRET; 
+export default class Mellow extends Component {
 
     home(){
         Actions.home();

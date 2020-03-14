@@ -2,11 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import MellowPlaylist from './screens/Mellow'
-import FunkyPlaylist from './screens/Funky'
-import GoodBeatsPlaylist from './screens/GoodBeats'
-import RnBPlaylist from './screens/RhythmAndBlues'
-
+import Mellow from './screens/Mellow'
+import Funky from './screens/Funky'
+import GoodBeats from './screens/GoodBeats'
+import RnB from './screens/RhythmAndBlues'
+import WatchVideo from './screens/Video'
+import GoodBeatsPlaylist from './playlists/GoodBeatsPlaylist'
+import FunkyPlaylist from './playlists/FunkyPlaylist'
 
 function HomeScreen({ navigation }) {
   return (
@@ -14,7 +16,7 @@ function HomeScreen({ navigation }) {
       <Text style={{textAlign: 'center', fontSize: 30}}>WHAT'S THE VIBE?</Text>
       
       <TouchableOpacity
-        onPress={() => navigation.navigate('Funky Playlist')}
+        onPress={() => navigation.navigate('Funky')}
         style={{ backgroundColor: '#EAFFF7', height: 80 }}>
         <Text style={{ fontSize: 45, color: '#35C687', textAlign: 'center' }}>FUNKY</Text>
       </TouchableOpacity>
@@ -24,7 +26,7 @@ function HomeScreen({ navigation }) {
         <Text style={{ fontSize: 45, color: '#FFD026', textAlign: 'center' }}>MELLOW</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Good Beats Playlist')}
+        onPress={() => navigation.navigate('Good Beats')}
         style={{ backgroundColor: '#E3DFFF', height: 80}}>
         <Text style={{ fontSize: 45, color: '#A0AAFF', textAlign: 'center' }}>GOOD BEATS</Text>
       </TouchableOpacity>
@@ -34,7 +36,7 @@ function HomeScreen({ navigation }) {
         <Text style={{ fontSize: 45, color: '#F989AD', textAlign: 'center'}}>RHYTHM & BLUES</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => alert('You chose Mix It Up!')}
+        onPress={() => navigation.navigate('Video')}
         style={{ backgroundColor: '#C4FBFF', height: 80 }}>
         <Text style={{ fontSize: 45, color: '#36B9ED', textAlign: 'center'}}>SURPRISE ME</Text>
       </TouchableOpacity>
@@ -63,10 +65,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen}/>
-        <Stack.Screen name="Funky Playlist" component={FunkyPlaylist}/>
-        <Stack.Screen name="Mellow Playlist" component={MellowPlaylist}/>
+        <Stack.Screen name="Funky" component={Funky}/>
+        <Stack.Screen name="Mellow" component={Mellow}/>
+        <Stack.Screen name="Good Beats" component={GoodBeats}/>
+        <Stack.Screen name="Rhythm and Blues" component={RnB}/>
+        <Stack.Screen name="Video" component={WatchVideo}/>
         <Stack.Screen name="Good Beats Playlist" component={GoodBeatsPlaylist}/>
-        <Stack.Screen name="Rhythm and Blues Playlist" component={RnBPlaylist}/>
+        <Stack.Screen name="Funky Playlist" component={FunkyPlaylist}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

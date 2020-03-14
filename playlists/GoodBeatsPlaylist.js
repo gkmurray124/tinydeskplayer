@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import { WebView } from 'react-native-webview'
-export default class WatchVideo extends Component {
+export default class GoodBeatsPlaylist extends Component {
 
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export default class WatchVideo extends Component {
       <SafeAreaView style={styles.safeArea}>
           { 
             <WebView
-              source={{ uri: `https://www.youtube.com/watch?v=${this.props.videoId}`}}
+              source={{ uri: 'https://www.youtube.com/watch?v=QrR_gm6RqCo&list=PL4W7Aa3_xVcdO6JOMXu-qzC5wtLRI3AUh'}}
               startInLoadingState={true} 
             />
           }

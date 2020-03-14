@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
+import secrets from '../secrets'
 
 const MAX_RESULT = 15; 
 const PLAYLIST_ID = "PL4W7Aa3_xVcdO6JOMXu-qzC5wtLRI3AUh"; 
-const API_KEY = "AIzaSyDNx0Jmg9OpnNoktl6489zmB2ptvNTRj28"; 
-export default class GoodBeatsPlaylist extends Component {
+const API_KEY = API_KEY_SECRET; 
+export default class GoodBeats extends Component {
 
-    home(){
-        Actions.home();
-      };
-      watchVideo(video_url){
-        Actions.watchvideo({video_url: video_url});
-      };
       componentWillMount() {
         this.fetchPlaylistData();
       };
@@ -29,8 +23,13 @@ export default class GoodBeatsPlaylist extends Component {
       }
       render() {
         const videos = this.state.videos;
+        const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
+              <TouchableOpacity   style={styles.button}
+                        title="Play This Playlist"
+                        onPress={() => navigate('Good Beats Playlist')}>
+              </TouchableOpacity>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -38,7 +37,7 @@ export default class GoodBeatsPlaylist extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => this.watchVideo(item.contentDetails.videoId)}
+                        onPress={() => navigate('Video')}
                     >
                     <Text 
                       style={styles.item} 
@@ -67,4 +66,8 @@ export default class GoodBeatsPlaylist extends Component {
         fontSize: 12,
         height: 44,
       },
+      button: { 
+          height: 100,
+          color: '#A0AAFF'
+      }
     });
