@@ -12,7 +12,7 @@ export default class WatchVideo extends Component {
       <SafeAreaView style={styles.safeArea}>
           { 
             <WebView
-              source={{ uri: `https://www.youtube.com/watch?v=${this.props.videoId}`}}
+              source={{ uri: `https://www.youtube.com/watch?v=${this.props.video_url}`}}
               startInLoadingState={true} 
             />
           }

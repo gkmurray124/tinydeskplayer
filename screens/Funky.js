@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
 import secrets from '../secrets'
 
-const MAX_RESULT = 15; 
+const MAX_RESULT = 30; 
 const PLAYLIST_ID = "PL4W7Aa3_xVcf_pqPOmmNxvdZKGhjNBfvz"; 
 const API_KEY = API_KEY_SECRET; 
 export default class Funky extends Component {

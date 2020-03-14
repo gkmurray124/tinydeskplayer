@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
 import secrets from '../secrets'
 
-const MAX_RESULT = 15; 
+const MAX_RESULT = 30; 
 const PLAYLIST_ID = "PL4W7Aa3_xVcdO6JOMXu-qzC5wtLRI3AUh"; 
 const API_KEY = API_KEY_SECRET; 
 export default class GoodBeats extends Component {
@@ -26,10 +26,10 @@ export default class GoodBeats extends Component {
         const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
-              <TouchableOpacity   style={styles.button}
+              <Button   style={styles.button}
                         title="Play This Playlist"
                         onPress={() => navigate('Good Beats Playlist')}>
-              </TouchableOpacity>
+              </Button>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}

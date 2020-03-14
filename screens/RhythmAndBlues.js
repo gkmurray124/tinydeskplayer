@@ -1,19 +1,11 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
 import secrets from '../secrets'
 
-const MAX_RESULT = 15; 
+const MAX_RESULT = 30; 
 const PLAYLIST_ID = "PL4W7Aa3_xVcfplsKGVyAEtKgpWaZ05cyf"; 
 const API_KEY = API_KEY_SECRET;
 export default class RnB extends Component {
-
-    home(){
-        Actions.home();
-      };
-      watchVideo(video_url){
-        Actions.watchvideo({video_url: video_url});
-      };
       componentWillMount() {
         this.fetchPlaylistData();
       };
@@ -30,8 +22,13 @@ export default class RnB extends Component {
       }
       render() {
         const videos = this.state.videos;
+        const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
+            <Button   style={styles.button}
+                        title="Play This Playlist"
+                        onPress={() => navigate('RnB Playlist')}>
+              </Button>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -39,7 +36,7 @@ export default class RnB extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => this.watchVideo(item.contentDetails.videoId)}
+                        onPress={() => navigate('Video')}
                     >
                     <Text 
                       style={styles.item} 
@@ -68,4 +65,8 @@ export default class RnB extends Component {
         fontSize: 12,
         height: 44,
       },
+      button: { 
+        height: 100, 
+        color: '#F989AD'
+      }
     });

@@ -1,19 +1,12 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
 import secrets from '../secrets'
 
-const MAX_RESULT = 15; 
+const MAX_RESULT = 30; 
 const PLAYLIST_ID = "PL4W7Aa3_xVccPBZ6nucbBpJaqP0H_tsVL"; 
 const API_KEY = API_KEY_SECRET; 
 export default class Mellow extends Component {
 
-    home(){
-        Actions.home();
-      };
-      watchVideo(video_url){
-        Actions.watchvideo({video_url: video_url});
-      };
       componentWillMount() {
         this.fetchPlaylistData();
       };
@@ -30,8 +23,13 @@ export default class Mellow extends Component {
       }
       render() {
         const videos = this.state.videos;
+        const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
+            <Button style={styles.button}
+            title="Play This Playlist"
+            onPress={() => navigate('Mellow Playlist')}>
+            </Button>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -39,7 +37,7 @@ export default class Mellow extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => this.watchVideo(item.contentDetails.videoId)}
+                        onPress={() => navigate('Video')}
                     >
                     <Text 
                       style={styles.item} 
@@ -68,4 +66,8 @@ export default class Mellow extends Component {
         fontSize: 12,
         height: 44,
       },
+      button: { 
+        height: 100, 
+        color: '#FFD026'
+      }
     });
