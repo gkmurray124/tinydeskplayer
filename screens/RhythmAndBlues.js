@@ -25,10 +25,10 @@ export default class RnB extends Component {
         const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
-            <Button   style={styles.button}
-                        title="Play This Playlist"
+             <TouchableOpacity   style={styles.button}
                         onPress={() => navigate('RnB Playlist')}>
-              </Button>
+                  <Text style={{ textAlign: 'center', color: 'black', fontSize: 28, paddingTop: 8 }}>Go To Playlist</Text>
+              </TouchableOpacity>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -66,7 +66,7 @@ export default class RnB extends Component {
         height: 44,
       },
       button: { 
-        height: 100, 
-        color: '#F989AD'
+        height: 50, 
+        backgroundColor: '#F989AD'
       }
     });

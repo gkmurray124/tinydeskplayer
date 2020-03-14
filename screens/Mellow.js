@@ -26,10 +26,10 @@ export default class Mellow extends Component {
         const {navigate} = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
-            <Button style={styles.button}
-            title="Play This Playlist"
-            onPress={() => navigate('Mellow Playlist')}>
-            </Button>
+             <TouchableOpacity   style={styles.button}
+                        onPress={() => navigate('Mellow Playlist')}>
+                  <Text style={{ textAlign: 'center', color: 'black', fontSize: 28, paddingTop: 8 }}>Go To Playlist</Text>
+              </TouchableOpacity>
                 <FlatList
                   data={videos}
                   keyExtractor={(_, index) => index.toString()}
@@ -67,7 +67,7 @@ export default class Mellow extends Component {
         height: 44,
       },
       button: { 
-        height: 100, 
-        color: '#FFD026'
+        height: 50, 
+        backgroundColor: '#FFD026'
       }
     });
