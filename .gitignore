@@ -9,10 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
-<<<<<<< HEAD
 secrets.js
-=======
->>>>>>> ff67d83c9793930ecad6d6609758e8a96a797c88
 
 # macOS
 .DS_Store
