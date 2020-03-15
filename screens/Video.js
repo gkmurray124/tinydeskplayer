@@ -9,7 +9,8 @@ export default class WatchVideo extends Component {
   }
   render() {
     const { navigation } = this.props 
-    const videoId = navigation.getParam('videoId', 'N1w-hDiJ4dM');  
+    const { videoId } = navigation.state.params  
+
     return (
       <SafeAreaView style={styles.safeArea}>
           { 

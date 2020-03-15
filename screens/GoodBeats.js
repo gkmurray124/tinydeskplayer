@@ -24,7 +24,7 @@ export default class GoodBeats extends Component {
       }
       render() {
         const videos = this.state.videos;
-        const {navigate} = this.props.navigation
+        const { navigate } = this.props.navigation
         return (
           <SafeAreaView style={styles.safeArea}>
               <TouchableOpacity   style={styles.button}
@@ -37,6 +37,7 @@ export default class GoodBeats extends Component {
                   renderItem={
                     ({item}) => 
                     <TouchableOpacity
+
                         style={styles.demacate}
                         onPress={() => navigate('Video', { videoId: item.contentDetails.videoId} )}
                     >

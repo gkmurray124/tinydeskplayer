@@ -39,7 +39,7 @@ function HomeScreen({ navigation }) {
         <Text style={{ fontSize: 45, color: '#F989AD', textAlign: 'center'}}>RHYTHM & BLUES</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Surprise Video')}
+        onPress={() => navigation.navigate('Surprise!!!')}
         style={{ backgroundColor: '#C4FBFF', height: 80 }}>
         <Text style={{ fontSize: 45, color: '#36B9ED', textAlign: 'center'}}>SURPRISE ME</Text>
       </TouchableOpacity>
@@ -73,7 +73,7 @@ export default function App() {
         <Stack.Screen name="Good Beats" component={GoodBeats} />
         <Stack.Screen name="Rhythm and Blues" component={RnB}/>
         <Stack.Screen name="Video" component={WatchVideo} />
-        <Stack.Screen name="Surprise Video" component={SurpriseVideo}/>
+        <Stack.Screen name="Surprise!!!" component={SurpriseVideo}/>
         <Stack.Screen name="Good Beats Playlist" component={GoodBeatsPlaylist} />
         <Stack.Screen name="Funky Playlist" component={FunkyPlaylist}/>
         <Stack.Screen name="Mellow Playlist" component={MellowPlaylist}/>

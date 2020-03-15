@@ -37,7 +37,7 @@ export default class Funky extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => navigate('Video')}
+                        onPress={() => navigate('Video', { videoId: item.contentDetails.videoId })}
                     >
                     <Text 
                       style={styles.item} 
