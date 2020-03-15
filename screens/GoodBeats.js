@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity } from 'react-native'
 import secrets from '../secrets'
 
 const MAX_RESULT = 30; 
@@ -9,6 +9,7 @@ export default class GoodBeats extends Component {
 
       componentWillMount() {
         this.fetchPlaylistData();
+
       };
       fetchPlaylistData = async () => {
         const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${PLAYLIST_ID}&maxResults=${MAX_RESULT}&part=snippet%2CcontentDetails&key=${API_KEY}`);
@@ -18,7 +19,7 @@ export default class GoodBeats extends Component {
       constructor(props) {
         super(props);
         this.state = {
-          videos: [],
+          videos: []
         }
       }
       render() {
@@ -27,7 +28,7 @@ export default class GoodBeats extends Component {
         return (
           <SafeAreaView style={styles.safeArea}>
               <TouchableOpacity   style={styles.button}
-                        onPress={() => navigate('Good Beats Playlist')}>
+                        onPress={() => navigate('Good Beats Playlist')}> 
                   <Text style={{ textAlign: 'center', color: 'black', fontSize: 28, paddingTop: 8 }}>Go To Playlist</Text>
               </TouchableOpacity>
                 <FlatList
@@ -37,7 +38,7 @@ export default class GoodBeats extends Component {
                     ({item}) => 
                     <TouchableOpacity
                         style={styles.demacate}
-                        onPress={() => navigate('Video')}
+                        onPress={() => navigate('Video', { videoId: item.contentDetails.videoId} )}
                     >
                     <Text 
                       style={styles.item} 
@@ -68,7 +69,6 @@ export default class GoodBeats extends Component {
       },
       button: { 
           height: 50,
-          backgroundColor: '#A0AAFF', 
-          color: '#E3DFFF'
+          backgroundColor: '#A0AAFF'
       }
     });

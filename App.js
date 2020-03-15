@@ -7,6 +7,7 @@ import Funky from './screens/Funky'
 import GoodBeats from './screens/GoodBeats'
 import RnB from './screens/RhythmAndBlues'
 import WatchVideo from './screens/Video'
+import SurpriseVideo from './screens/SurpriseVideo'
 import GoodBeatsPlaylist from './playlists/GoodBeatsPlaylist'
 import FunkyPlaylist from './playlists/FunkyPlaylist'
 import MellowPlaylist from './playlists/MellowPlaylist'
@@ -38,7 +39,7 @@ function HomeScreen({ navigation }) {
         <Text style={{ fontSize: 45, color: '#F989AD', textAlign: 'center'}}>RHYTHM & BLUES</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Video')}
+        onPress={() => navigation.navigate('Surprise Video')}
         style={{ backgroundColor: '#C4FBFF', height: 80 }}>
         <Text style={{ fontSize: 45, color: '#36B9ED', textAlign: 'center'}}>SURPRISE ME</Text>
       </TouchableOpacity>
@@ -69,10 +70,11 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="Funky" component={Funky}/>
         <Stack.Screen name="Mellow" component={Mellow}/>
-        <Stack.Screen name="Good Beats" component={GoodBeats}/>
+        <Stack.Screen name="Good Beats" component={GoodBeats} />
         <Stack.Screen name="Rhythm and Blues" component={RnB}/>
-        <Stack.Screen name="Video" component={WatchVideo}/>
-        <Stack.Screen name="Good Beats Playlist" component={GoodBeatsPlaylist}/>
+        <Stack.Screen name="Video" component={WatchVideo} />
+        <Stack.Screen name="Surprise Video" component={SurpriseVideo}/>
+        <Stack.Screen name="Good Beats Playlist" component={GoodBeatsPlaylist} />
         <Stack.Screen name="Funky Playlist" component={FunkyPlaylist}/>
         <Stack.Screen name="Mellow Playlist" component={MellowPlaylist}/>
         <Stack.Screen name="RnB Playlist" component={RnBPlaylist}/>

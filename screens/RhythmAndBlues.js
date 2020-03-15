@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, Text, TouchableOpacity} from 'react-native'
 import secrets from '../secrets'
 
 const MAX_RESULT = 30; 
