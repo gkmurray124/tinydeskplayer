@@ -20,6 +20,7 @@ export default class GoodBeatsPlaylist extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,

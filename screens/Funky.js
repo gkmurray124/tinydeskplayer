@@ -18,7 +18,7 @@ export default class Funky extends Component {
       constructor(props) {
         super(props);
         this.state = {
-          videos: [],
+          videos: []
         }
       }
       render() {
